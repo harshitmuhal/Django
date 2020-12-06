@@ -1,0 +1,13 @@
+{%extends 'main/base.html'%}
+
+{%block body%}
+
+<h1>My blog</h1>
+<I><h2>TOP 10 ARTICLES ARE :</h2></I>
+<ul>
+{%for article in latest_articles%}
+<li><a href="{%url 'get_article' article.pk %}">{{article}}</a></li>
+{%endfor%}
+</ul>
+
+{%endblock%}

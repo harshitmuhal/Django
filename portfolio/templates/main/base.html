@@ -1,0 +1,18 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Portfolio: {{name}}</title>
+    <link rel="stylesheet" href="{%static 'css/materialize.min.css'%}">
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    {% include 'navbar.html'%}
+    {% block body %} {% endblock %}
+    {% block script %} {% endblock %}
+  </body>
+</html>

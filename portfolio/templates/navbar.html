@@ -1,0 +1,42 @@
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">Skills</a></li>
+  <li><a href="#!">Achievements</a></li>
+  <li><a href="#!">Certifications</a></li>
+  <li><a href="#!">Articles</a></li>
+  <li class="divider"></li>
+</ul>
+
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo" style="font-family:'Didot'">Portfolio</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="waves-effect waves-light btn-large" href="#!">Education</a></li>
+          <li><a class="waves-effect waves-light btn-large" href="#!">Experience</a></li>
+          <li><a class="waves-effect waves-light btn-large" href="#!">Projects</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a class="waves-effect waves-light btn-large" href="#!">Education</a></li>
+      <li><a class="waves-effect waves-light btn-large" href="#!">Experience</a></li>
+      <li><a class="waves-effect waves-light btn-large" href="#!">Projects</a></li>
+      <li><a class="waves-effect waves-light btn-large" href="#!">Skills</a></li>
+    </ul>
+
+
+<script>
+  <!-- for navbar -->
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+<!-- for dropdown in navbar -->
+document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('.dropdown-trigger');
+   var instances = M.Dropdown.init(elems);
+ });
+</script>

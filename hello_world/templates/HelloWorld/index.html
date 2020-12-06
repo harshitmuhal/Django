@@ -1,0 +1,39 @@
+
+<!-- this file extends the HelloWorld/base.html present in the templates directory-->
+
+{% extends 'HelloWorld/base.html'%}
+
+
+<!--here is the code exclusive to HelloWorld/index.html only because common code is in base.html-->
+
+{% block head%}
+<style>
+
+</style>
+
+{% endblock %}
+
+
+
+{%block body%}
+
+{% include 'HelloWorld/navbar.html'%}
+<div class="container">
+  <h3>This is the Main page rendered using render function.</h3>
+
+  <ul class='collection'>
+  {% for name in family%}
+  <li class="{% cycle 'bold' '' %} collection-item">{{name}}</li>
+  {%endfor%}
+  </ul>
+  <br>
+
+  <span>Developed by : {{developer}}</span>
+
+
+  <p>{% lorem %}</p>
+</div>
+
+
+
+{% endblock %}

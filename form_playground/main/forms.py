@@ -1,4 +1,5 @@
-from django import forms,ModelForm
+from django import forms
+from main import models
 
 class my_form(forms.Form):
     name=forms.CharField()

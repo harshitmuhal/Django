@@ -1,0 +1,33 @@
+{%extends 'main/base.html'%}
+
+{%block body%}
+<h1>create new article</h1>
+
+{% if success %}
+    <p>Form submitted successfully</p>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+
+<!-- The CSRF middleware and template tag provides easy-to-use protection against Cross Site Request Forgeries.
+This type of attack occurs when a malicious website contains a link, a form button or some JavaScript
+that is intended to perform some action on your website, using the credentials of a logged-in user who
+visits the malicious site in their browser. A related type of attack, ‘login CSRF’, where an attacking
+site tricks a user’s browser into logging into a site with someone else’s credentials, is also covered. -->
+
+    <input type="text" name="title" placeholder="Title" />
+    <textarea name="content" placeholder="Content"></textarea>
+    <select name="author">
+      {% for author in authors %}
+        <option value="{{ author.id }}">{{ author.name }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+<br>
+<a href="{%url 'main_page'%}">Main Page</a>
+
+{%endblock%}

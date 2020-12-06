@@ -5,7 +5,17 @@
 
 <h1>{{article.title}}</h1>
 <h2>Created at {{article.createdAt}}</h2>
-<h3>Written By : </h3>
+<h3>Written By :
+{%for author in article.authors.all%} <!--paranthesis are not added in the template tages-->
+<a href="{% url 'get_author' author.id %}">
+        {{ author }},
+      </a>
+{%endfor%}
+</h3>
+
+<!-- article.author which is Many to Many relationship attribute is relationship Manager using
+which we can make queries. -->
+
 
 <p>{{article.content}}</p>
 

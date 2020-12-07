@@ -11,7 +11,8 @@
     {%endif%}
 <form method="post">
   {%csrf_token%}
-  {{loginform}}
+  <!-- {{loginform}} --> <!-- it is for login view written by us-->
+  {{form}}   <!-- it is for LoginView django provided us and form is the context_object_name-->
   <input type="submit">
 </form>
   </body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>college</h1>
+    Name: {{ object.name }} <br> <!-- object is the context object name for college -->
+    Students:
+    <ul>
+      {% for student in object.student_set.all %}
+        <li>{{student.name}}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{%extends 'main/base.html'%}
+
+{%block body%}
+<div class="container">
+  <h1>Popular Questions</h1>
+  <div class="collection">
+    {%for que in question_list%}
+      <a href="#!" class="collection-item">{{que}}</a>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

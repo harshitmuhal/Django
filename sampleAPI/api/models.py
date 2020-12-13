@@ -6,7 +6,7 @@ class Tag(models.Model):
     name=models.CharField(max_length=200,null=False,blank=False)
 
     def __str__(self):
-        self.name
+        return self.name
 
 class Article(models.Model):
     slug=models.SlugField()
@@ -20,4 +20,4 @@ class Article(models.Model):
     favouriteCount = models.IntegerField(default = 0)
 
     def __str__(self):
-        self.title
+        return self.title

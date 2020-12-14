@@ -66,3 +66,40 @@ def createarticle(request):
         return Response(response.body)
 
     return Response(response.errors)
+
+# class based views
+from rest_framework.generics import ListAPIView,RetrieveAPIView,ListCreateAPIView,RetrieveUpdateAPIView
+
+class ArticleList(ListAPIView):
+    serializer_class=serializers.ArticleSerializer
+    queryset=models.Article.objects.all() # Compulsary parameter
+
+class ArticleDetail(RetrieveAPIView):
+    serializer_class=serializers.ArticleSerializer
+    queryset=models.Article.objects.all() # Compulsary parameter
+
+class ArticlesDetailView(RetrieveUpdateAPIView):
+    # RetrieveUpdateAPIView : If there is a get request then article will be fetched
+    # if request is patch then article will be updated.
+    queryset = models.Article.objects.all()
+    serializer_class = serializers.ArticleSerializer
+
+# class ArticlesDetailView(ListCreateAPIView):
+#     # ListCreateAPIView : get request = list of all articles
+#     # post request : create a new article with given body
+#     queryset = models.Article.objects.all()
+#     serializer_class = serializers.ArticleSerializer
+
+# OR
+
+class ArticlesDetailView(ListCreateAPIView):
+    serializer_class = serializers.ArticleSerializer
+
+    def get_queryset(self):
+        # URls may contain parameters www.domain.com/so_and_so?key=x&key2=y
+        # self.request.GET gives us these parameters
+        query = {} # To get only those articles in queryset as requested by user
+        # for ex - user may request to get only articles with tags : language
+        for key, value in self.request.GET.items():
+            query["{}__icontains".format(key)] = value
+        return models.Article.objects.filter(**query) # unpacking using **
